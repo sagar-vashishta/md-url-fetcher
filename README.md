@@ -21,8 +21,8 @@
 
 ```
 npm install
-brew services start mongod
-brew services redis-server
+start mongod
+redis-server
 npm start
 ```
 
