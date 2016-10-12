@@ -29,7 +29,7 @@ angular.module('urlFetcherApp', ['ngRoute'])
   .controller('HomeController', function ($scope, Jobs) {
     $scope.checkJobStatus = function (job) {
       Jobs.getJob(job.id).then(function (response) {
-				$scope.statusMessage = response.data;
+        $scope.statusMessage = response.data;
       }, function (response) {
         $scope.statusMessage = response.data.error;
       });
