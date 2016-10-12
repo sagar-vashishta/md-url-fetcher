@@ -5,12 +5,11 @@ var mongodb = require('mongodb');
 var kue = require('kue');
 var redis = require('redis');
 var url = require('url');
-var validator = require('validator');
 
-var JOBS_COLLECTION = 'jobs';
-
+// db configs
 var REDIS_URL = process.env.REDISTOGO_URL || 'redis://localhost:6379';
 var MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost';
+var JOBS_COLLECTION = 'jobs';
 
 // redis connection for kue
 kue.redis.createClient = function () {
@@ -104,7 +103,7 @@ app.get('/jobs/:id', function (req, res) {
         handleError(res, err.message, 'Unable to locate job.', 500);
       } else {
         if (job._state === 'complete') {
-          // retrieve job results from mongo if complete
+          // retrieve data from mongo if the job is complete
           db.collection(JOBS_COLLECTION).findOne({
             jobId: req.params.id
           }, function (err, doc) {

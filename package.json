@@ -23,8 +23,7 @@
     "mongodb": "^2.0.43",
     "redis": "^2.6.2",
     "sanitize-html": "^1.13.0",
-    "url": "^0.11.0",
-    "validator": "^6.0.0"
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",

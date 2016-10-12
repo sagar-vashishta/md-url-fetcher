@@ -1,7 +1,5 @@
-var express = require('express');
 var kue = require('kue');
 var http = require('http');
-var app = express();
 var mongodb = require('mongodb');
 var sanitizeHtml = require('sanitize-html');
 var redis = require('redis');
@@ -43,7 +41,7 @@ queue.on('error', (err) => {
   console.error(err.stack);
 });
 
-queue.process('crawl', 5, function (job, done) {
+queue.process('crawl', 20, function (job, done) {
   var url = job.data.url.replace(/.*?:\/\//g, "");
   console.log("Crawling job id", job.id);
 
@@ -70,7 +68,7 @@ queue.process('crawl', 5, function (job, done) {
         newJob.body = html;
       }
 
-      // store html content in body
+      // store html content in mongo when complete
       db.collection(JOBS_COLLECTION).insertOne(newJob, function (err, doc) {
         done();
       });
@@ -80,4 +78,3 @@ queue.process('crawl', 5, function (job, done) {
 });
 
 kue.app.listen(3000);
-app.use(kue.app);

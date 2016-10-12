@@ -34,7 +34,6 @@ angular.module('urlFetcherApp', ['ngRoute'])
         $scope.statusMessage = response.data.error;
       });
     }
-
     $scope.fetchUrl = function (site) {
       Jobs.createJob(site).then(function (response) {
         if (response.status === 201) {
