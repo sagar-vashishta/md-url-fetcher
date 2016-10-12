@@ -1,14 +1,13 @@
 angular.module('urlFetcherApp', ['ngRoute'])
 
   .config(function ($routeProvider) {
-    $routeProvider
-			.when('/', {
-				templateUrl: 'home.html',
-        controller: 'HomeController'
-      })
-      .otherwise({
-        redirectTo: '/'
-      })
+    $routeProvider.when('/', {
+      templateUrl: 'home.html',
+      controller: 'HomeController'
+    })
+    .otherwise({
+      redirectTo: '/'
+    })
   })
 
   .service('Jobs', function ($http) {
