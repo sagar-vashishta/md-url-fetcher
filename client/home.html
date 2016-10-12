@@ -1,0 +1,25 @@
+<div class="container home">
+
+  <div class="row">
+
+    <h3>Fetch New URL</h3>
+
+    <label>URL</label>
+    <input id="url" class="form-control" type="text" ng-model="site.url" required>
+    <button class="btn btn-primary" ng-click="fetchUrl(site)">Fetch URL</button>
+    <div class="well message bg-info" ng-if="fetchMessage" ng-bind="fetchMessage"></div>
+  </div>
+
+  <div class="row">
+
+    <h3>Check Job Status</h3>
+
+    <label>Job ID</label>
+    <input id="jobId" class="form-control" type="text" ng-model="job.id" required>
+    <button class="btn btn-primary" ng-click="checkJobStatus(job)">Check Status</button>
+
+    <div class="well message bg-info" ng-if="statusMessage" ng-bind="statusMessage"></div>
+    <div class="well message bg-error" ng-if="statusError" ng-bind="statusError"></div>
+  </div>
+
+</div>

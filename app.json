@@ -1,0 +1,5 @@
+{
+  "name": "md-url-fetcher",
+  "repository": "https://github.com/sagar-vashishta/md-url-fetcher",
+  "addons": ["mongolab", "redistogo"]
+}
