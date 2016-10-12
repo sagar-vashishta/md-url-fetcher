@@ -21,7 +21,7 @@
 
 ```
 npm install
-start mongod
+mongod
 redis-server
 npm start
 ```
